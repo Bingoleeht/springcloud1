@@ -1,0 +1,7 @@
+#\u5411\u6CE8\u518C\u4E2D\u5FC3\u6CE8\u518C\u7684\u540D\u5B57
+spring:
+  application:
+    name: item-service
+# itme  8001, user  8101  ,  order 8201
+server:
+  port: 8001

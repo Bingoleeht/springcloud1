@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: user-service
+
+server:
+  port: 8101
+
+# \u81EA\u5B9A\u4E49\u914D\u7F6E\u5C5E\u6027
+# \u7528\u6237\u7684 demo \u6570\u636E
+# "[{7},{8},{9}]"
+sp:
+  user-service:
+    users: "[{\"id\":7, \"username\":\"abc\",\"password\":\"123\"},
+            {\"id\":8, \"username\":\"def\",\"password\":\"456\"},
+            {\"id\":9, \"username\":\"ghi\",\"password\":\"789\"}]"
