@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "USER-SERVICE")
 public interface UserClient {
     @GetMapping("/{userId}")
-    JsonResult<User> getUser(@PathVariable("userId") Integer userId);
+    JsonResult<User> getUser(@PathVariable Integer userId);
 
     @GetMapping("/{userId}/score") // ?score=1000
-    JsonResult<?> addScore(@PathVariable("userId") Integer userId, @RequestParam("score") Integer score);
+    JsonResult<?> addScore(@PathVariable Integer userId, @RequestParam("score") Integer score);
 }

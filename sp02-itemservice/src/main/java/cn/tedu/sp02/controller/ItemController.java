@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @Slf4j
@@ -16,8 +17,15 @@ public class ItemController {
     private ItemService itemService;
     // 获取订单的商品列表
     @GetMapping("/{orderId}")
-    public JsonResult<List<Item>> getItems(@PathVariable String orderId){
+    public JsonResult<List<Item>> getItems(@PathVariable String orderId) throws InterruptedException {
         List<Item> items = itemService.getItems(orderId);
+
+        // 随机阻塞代码
+        if(Math.random()<0.9){
+            int i = new Random().nextInt(5000); //随机时长5秒内。
+            log.info("暂停： "+i);
+            Thread.sleep(i);
+        }
         return JsonResult.build().code(200).data(items);
     }
 

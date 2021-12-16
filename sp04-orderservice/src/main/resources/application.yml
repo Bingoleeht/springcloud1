@@ -10,3 +10,7 @@ eureka:
     service-url:
       # 默认地点，如果使用云服务，可以从云服务商购买不同地点注册中心服务器，自己搭建的注册中心，只能使用defaultZone
       defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+
+ribbon:
+  MaxAutoRetries: 1   #单台服务器不重试
+  MaxAutoRetriesNextServer: 2    # 更换1此服务器，禁用重试都设置成0
