@@ -16,10 +16,10 @@ import java.util.List;
  * 2、调用服务的哪个路径
  * 3、向路径提交什么参数
  */
-@FeignClient(name="item-service")   // 通过名称发现服务器的地址
+@FeignClient(name="ITEM-SERVICE")   // 通过名称发现服务器的地址
 public interface ItemClient {
     @GetMapping("{orderId}")    //利用springmvc注解，去调用远程模块路径。
-    JsonResult<List<Item>> getItems(@PathVariable String orderId);
+    JsonResult<List<Item>> getItems(@PathVariable("orderId") String orderId);
 
     @PostMapping("/decreaseNumber")
     JsonResult<?> decreaseNumber(@RequestBody List<Item> items);
