@@ -16,7 +16,7 @@ import java.io.InputStream;
  * 向客户端返回降级结果；
  */
 @Component
-public class ItemFB implements FallbackProvider {
+public class OrderFB implements FallbackProvider {
     /*
     * 设置当前降级类，针对哪个后台服务降级
     * -item-service : 只针对商品降级
@@ -25,7 +25,7 @@ public class ItemFB implements FallbackProvider {
 
     @Override
     public String getRoute() {
-        return "item-service";
+        return "order-service";
     }
     // 发回给客户端的降级响应数据
     @Override
