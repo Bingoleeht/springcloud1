@@ -25,6 +25,8 @@ public class AccessFilter extends ZuulFilter {
     /* 过滤器的顺序号*/
     @Override
     public int filterOrder() {
+        /*
+        * 在默认的第5个过滤器中，向上下文对象放入了 serviceID。后面过滤器中才能访问这个数据*/
         log.info("Zuul自动配置过滤器的顺序号");
         return 6;
     }
@@ -54,11 +56,12 @@ public class AccessFilter extends ZuulFilter {
         // 如果token不存在(null,"" ,"    ")，阻止继续访问，直接返回响应
         if(StringUtils.isBlank(token)){
             ctx.setSendZuulResponse(false);
+            String json = JsonResult.build().code(500).msg("没有登陆").toString();
+            ctx.addZuulResponseHeader("Content-type","application/json;charset=UTF-8");
+            ctx.setResponseBody(json);
         }
         // :JsonResult{code:500,msg:"xxx",data:null}
-        String json = JsonResult.build().code(500).msg("没有登陆").toString();
-        ctx.addZuulResponseHeader("Content-type","application/json;charset=UTF-8");
-        ctx.setResponseBody(json);
+
         return null;    // zull 当前版本没有使用这个返回值，返回任何数据都可以，不起任何作用；
     }
 }

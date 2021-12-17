@@ -13,3 +13,12 @@ zuul:
     item-service: /item-service/**
     user-service: /user-service/**
     order-service: /order-service/**
+  retryable: true
+# 针对所有模块，所有服务都有效
+ribbon:
+  MaxAutoRetries: 1
+
+#针对商品单独配置重试参数
+item-service:
+  ribbon:
+    MaxAutoRetries: 0

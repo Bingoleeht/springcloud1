@@ -39,3 +39,10 @@ GET http://localhost:3001/order-service/leee
 
 ###
 GET http://localhost:3001/order-service/add
+
+###
+GET http://localhost:3001/item-service/99090
+
+###
+GET http://localhost:3001/item-service/lklij?token=9iksdf
+
