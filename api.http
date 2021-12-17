@@ -18,5 +18,24 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8201/88989789k
+GET http://localhost:3001/item-service/88987898
+// 转发调用这个路径：http://localhost:8001/88987898
+###
 
+POST http://localhost:3001/item-service/decreaseNumber
+Content-Type: application/json
+
+[{"id":1, "name":"abc", "number":23},
+  {"id":2, "name":"def", "number":11}]
+
+###
+GET http://localhost:3001/user-service/8
+
+###
+GET http://localhost:3001/user-service/8/score?score=1000
+
+###
+GET http://localhost:3001/order-service/leee
+
+###
+GET http://localhost:3001/order-service/add
